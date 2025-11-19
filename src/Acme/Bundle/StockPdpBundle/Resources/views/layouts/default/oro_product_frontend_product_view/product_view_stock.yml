@@ -2,3 +2,6 @@ layout:
     actions:
         - '@setBlockTheme':
             themes: '@AcmeStockPdp/layouts/default/oro_product_frontend_product_view/stock_info.html.twig'
+    Acme\Bundle\StockPdpBundle\Layout\DataProvider\StockInfoDataProvider:
+        arguments:
+            - '@Acme\Bundle\StockPdpBundle\Provider\StockProvider'

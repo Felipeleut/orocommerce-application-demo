@@ -1,3 +1,14 @@
 {% block _product_view_brand_inventory_status_widget %}
-test
+    {% set qty = stock.quantity|default(0) %}
+
+        {% if qty > 0 %}
+            {% set stateClass = 'status-label--success' %}
+            {% set label = 'In stock'|trans %}
+        {% else %}
+            {% set stateClass = 'status-label--error' %}
+            {% set label = 'Out of stock'|trans %}
+        {% endif %}
+    <span class="status-label {{ stateClass }}">
+        {{ label }} - {{ qty|number_format(0, '.', ' ') }} pcs
+    </span>
 {% endblock %}
