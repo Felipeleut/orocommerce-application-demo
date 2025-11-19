@@ -5,7 +5,7 @@ namespace Acme\Bundle\StockPdpBundle\Layout\DataProvider;
 use Acme\Bundle\StockPdpBundle\Provider\StockProvider;
 use Oro\Bundle\ProductBundle\Entity\Product;
 
-class StockDataProvider
+class StockInfoDataProvider
 {
     public function __construct(
         private StockProvider $stockProvider
