@@ -12,7 +12,8 @@ This repository is the final delivery for the PDP stock display challenge.
 
 The stock value is retrieved inside an isolated Symfony bundle, `AcmeStockPdpBundle`. A dedicated service (`StockProvider`) uses Doctrine and Oro’s existing inventory entities to obtain the current inventory quantity for the PDP product. The bundle is registered via `bundles.yml` and its services via `services.yml`.
 
-On the presentation side, a layout update (`product_view_stock.yml`) hooks into the existing `product_view_brand_inventory_status` block on the product view layout. This update sets a custom block theme (`stock_info.html.twig`) and passes both the current product and the computed stock data to that Twig template. The template then applies simple business rules (low inventory threshold, zero-quantity “contact seller” case, normal/out-of-stock) to choose the final label and CSS state class, reusing Oro’s standard status-label styles so the customization blends into the default storefront theme.
+On the presentation side, a layout update (`product_view_stock.yml`) hooks into the existing `product_view_brand_inventory_status` block on the product view layout. This update sets a custom block theme (`stock_info.html.twig`) and passes both the current product and the computed stock data to that Twig template. 
+The template then applies simple business rules to choose the final label and CSS state class, reusing Oro’s standard status-label styles so the customization blends into the default storefront theme.
 
 
 ---
@@ -50,7 +51,6 @@ If necessary, edit `.env-app.local` and adjust the database section.
 From the project root:
 
     docker compose up -d
-    # or: docker-compose up -d
 
 This starts:
 
