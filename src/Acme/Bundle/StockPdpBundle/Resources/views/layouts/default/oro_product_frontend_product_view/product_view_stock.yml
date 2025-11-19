@@ -2,6 +2,14 @@ layout:
     actions:
         - '@setBlockTheme':
             themes: '@AcmeStockPdp/layouts/default/oro_product_frontend_product_view/stock_info.html.twig'
-    Acme\Bundle\StockPdpBundle\Layout\DataProvider\StockInfoDataProvider:
-        arguments:
-            - '@Acme\Bundle\StockPdpBundle\Provider\StockProvider'
+        - '@setOption':
+            id: product_view_brand_inventory_status
+            optionName: vars.stock
+            optionValue: '=data["acme_stock"].getStockInfo(data["product"])'
+        - '@add':
+            id: acme_product_stock_contact_seller
+            parentId: product_view_details_container
+            blockType: block
+            options:
+                vars:
+                    stock: '=data["acme_stock"].getStockInfo(data["product"])'

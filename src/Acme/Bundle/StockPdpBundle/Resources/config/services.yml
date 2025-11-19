@@ -2,3 +2,9 @@ services:
     Acme\Bundle\StockPdpBundle\Provider\StockProvider:
         arguments:
             - '@doctrine'
+
+    Acme\Bundle\StockPdpBundle\Layout\DataProvider\StockInfoDataProvider:
+        arguments:
+            - '@Acme\Bundle\StockPdpBundle\Provider\StockProvider'
+        tags:
+            - { name: layout.data_provider, alias: acme_stock }
