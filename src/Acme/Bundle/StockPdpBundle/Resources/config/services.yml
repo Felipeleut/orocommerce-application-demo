@@ -1,0 +1,4 @@
+services:
+    Acme\Bundle\StockPdpBundle\Provider\StockProvider:
+        arguments:
+            - '@doctrine'
