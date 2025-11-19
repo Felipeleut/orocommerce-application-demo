@@ -14,8 +14,21 @@ class StockProvider
     ) {
     }
 
+    /**
+     * Returns total quantity across all inventory levels for the product.
+    */
     public function getStockInfo(Product $product): array
     {
+        $repo = $this->doctrine->getRepository(InventoryLevel::class);
 
+        $levels = $repo->findBy(['product' => $product]);
+
+        $quantity = 0;
+    
+        foreach ($levels as $level) {
+            $quantity += $level->quantity;
+        }
+
+        return ['quantity' => $quantity];
     }
 }
