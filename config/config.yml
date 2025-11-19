@@ -2,7 +2,8 @@ imports:
     - { resource: parameters.yml, ignore_errors: not_found }
     - { resource: security.yml }
     - { resource: doctrine.yml }
-    - { resource: '@AcmeStockPdpBundle/Resources/config/services.yml' }
+    - { resource: '../src/Acme/Bundle/StockPdpBundle/Resources/config/services.yml' }
+    # - { resource: '@AcmeStockPdpBundle/Resources/config/services.yml' }
 
 parameters:
     # Some parameter values are not set from environment variables because Symfony service container build
